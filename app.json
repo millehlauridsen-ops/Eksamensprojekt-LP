@@ -1,0 +1,95 @@
+[
+  {
+    "id": 1,
+    "title": "Moonlight White",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Moonlight_white/Billede1.png",
+    "video": "/images/Moonlight_white/Luminavideo.mp4",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  },
+  {
+    "id": 2,
+    "title": "Rusty orange",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Rusty_orange/Billede1.png",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  },
+  {
+    "id": 3,
+    "title": "Chocolate brown",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Chocolate_brown/Billede1.png",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  },
+  {
+    "id": 4,
+    "title": "Charcoal black",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Charcoal_black/Billede1.png",
+    "video": "/images/Charcoal_black/Blackvideo.mov",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  },
+  {
+    "id": 5,
+    "title": "Sage green",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Sage_green/Billede1.png",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  },
+  {
+    "id": 6,
+    "title": "Dusty rose",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Dusty_rose/Billede1.png",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  },
+  {
+    "id": 7,
+    "title": "Lavender mist",
+    "features": [
+      "Bluetooth 5.3 connectivity",
+      "360º sound",
+      "IPX5 water resistance",
+      "18 hours of playtime"
+    ],
+    "rating": 5,
+    "image": "/images/Lavender_mist/Billede1.png",
+    "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights."
+  }
+]
