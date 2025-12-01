@@ -1,0 +1,58 @@
+h1 {
+  font-size: 60px;
+  font-family: Jura, sans-serif;
+  font-weight: 500;
+}
+h2 {
+  font-size: 28px;
+  font-family: JetBrains Mono, sans-serif;
+  font-weight: 700;
+}
+h3 {
+  font-size: 32px;
+  font-family: Jura, sans-serif;
+  font-weight: 300;
+}
+h4 {
+  font-size: 24px;
+  font-family: Jura, sans-serif;
+  font-weight: 700;
+}
+h5 {
+  font-size: 14px;
+  font-family: Jura, sans-serif;
+  font-weight: undefined;
+}
+p {
+  font-size: 20px;
+  font-family: Jura, sans-serif;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.Variable collection {
+  --Colors__Mrkebrun: #282119;
+  --Colors__Mrkeorange: rgba(165, 77, 39, 0.5);
+  --Colors__Orange: #c97338;
+  --Colors__Varmbrun: #65371f;
+  --Colors__Beige: #e6d8bd;
+  --Colors__Hamonikafarve: rgba(240, 240, 240, 0.6);
+  --Colors__Moonlightwhite: #fafafa;
+  --Colors__Violet: #c3bfd5;
+  --Colors__Green: #b2ac88;
+  --Colors__Dustyrose: #dda1a2;
+  --Colors__Moonlight: #ebdec6;
+  --Colors__BG: #ffffff;
+  --Colors__Chocolate_brown: #282119;
+  --Colors__Karrusel_BG: #fafafa;
+  --Toggle_day: #c97338;
+  --togglenight: #282119;
+  --Hero_text: #fafafa;
+  --Mrk_Orange_80: rgba(165, 77, 39, 0.8);
+  --app_CTA: #d7d7d7;
+  --CTA_tekst: rgba(40, 33, 25, 0.8);
+}
+
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Jura:wght@300&display=swap");
