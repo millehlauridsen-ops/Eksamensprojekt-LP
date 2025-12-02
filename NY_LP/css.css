@@ -60,6 +60,7 @@ p {
   --Mrk_Orange_80: rgba(165, 77, 39, 0.8);
   --app_CTA: #d7d7d7;
   --CTA_tekst: rgba(40, 33, 25, 0.8);
+  --CTA_BG: rgba(40, 33, 25, 0.3);
 }
 
 /* FONTS */
@@ -112,9 +113,65 @@ body {
   align-items: flex-start;
   padding: 16px;
 }
+#topNav a {
+  text-decoration: none;
+  color: var(--Hero_text);
+}
+#topNav .Menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#hero_content {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  padding: 64px;
+  padding-top: 120px;
+}
 
 #hero_text {
   display: flex;
   flex-direction: column;
   height: fit-content;
+}
+
+#hero_text_button {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+#hero_button {
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 78px;
+  border: 2.5px solid var(--Colors-Mrke-brun, #282119);
+  background: var(--CTA_BG);
+  box-shadow: 0 1px 26.7px -2px rgba(101, 55, 31, 0.1);
+  color: var(--Hero_text, #fafafa);
+  font-family: Jura;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#hero_button:hover {
+  cursor: pointer;
+  background-color: var(--Colors__Mrkeorange);
+}
+
+#trustpilot {
+  width: fit-content;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 4px;
+  }
 }
