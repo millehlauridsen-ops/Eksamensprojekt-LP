@@ -61,6 +61,10 @@ p {
   --app_CTA: #d7d7d7;
   --CTA_tekst: rgba(40, 33, 25, 0.8);
   --CTA_BG: rgba(40, 33, 25, 0.3);
+  /* aliases used by switch styles */
+  --farve_mørkebrun: var(--Colors__Mrkebrun);
+  --farve_moonlightwhite: var(--Colors__Moonlightwhite);
+  --farve_mørkeorange: var(--Colors__Mrk_Orange_80);
 }
 
 /* FONTS */
@@ -79,13 +83,14 @@ body {
   text-align: start;
   padding: 16px;
   padding-left: 80px;
-  a {
-    color: var(--Colors__Moonlightwhite);
-    font-size: 14px;
-    font-family: Jura, sans-serif;
-    font-weight: 400;
-    text-decoration: underline;
-  }
+}
+
+#banner a {
+  color: var(--Colors__Moonlightwhite);
+  font-size: 14px;
+  font-family: Jura, sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 #hero {
@@ -111,16 +116,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 16px;
+  padding: 64px;
+  padding-top: 16px;
 }
 #topNav a {
   text-decoration: none;
   color: var(--Hero_text);
+  font-family: Jura, sans-serif;
+  font-size: 20px;
 }
-#topNav .Menu {
+#icons {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 16px;
 }
 
 #hero_content {
@@ -167,11 +175,133 @@ body {
 
 #trustpilot {
   width: fit-content;
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    gap: 4px;
-  }
+}
+
+#trustpilot a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 4px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--farve_mørkebrun);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--farve_moonlightwhite);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  z-index: 2; /* knob above text */
+}
+
+/* text inside the slider */
+.slider .slider-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--farve_moonlightwhite);
+  pointer-events: none;
+  z-index: 1; /* behind knob */
+}
+.slider .slider-text.on {
+  left: 10px;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.2s;
+}
+.slider .slider-text.off {
+  right: 10px;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+/* toggle text visibility when checked */
+input:checked + .slider .slider-text.on {
+  opacity: 1;
+}
+input:checked + .slider .slider-text.off {
+  opacity: 0;
+}
+
+input:checked + .slider {
+  background-color: var(--Toggle_day);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 5px var(--Colors__Mrkeorange);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translateX(46px);
+  transform: translateX(46px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Slider position på siden */
+#slider {
+  height: 300px;
+  position: relative;
+}
+
+#slider {
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  display: flex;
+  margin-top: 50px;
+  width: 100%;
+  background: var(--Colors__Mrkebrun);
+  color: var(--Colors__Moonlightwhite);
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--Colors__Moonlightwhite);
 }
