@@ -2,16 +2,25 @@ h1 {
   font-size: 60px;
   font-family: Jura, sans-serif;
   font-weight: 500;
+  color: var(--Colors__Moonlightwhite);
+  line-height: 71px;
+  /* reduce space to following headings */
+  margin-bottom: 8px;
 }
 h2 {
   font-size: 28px;
   font-family: JetBrains Mono, sans-serif;
   font-weight: 700;
+  color: var(--Colors__Mrkebrun);
 }
 h3 {
   font-size: 32px;
   font-family: Jura, sans-serif;
   font-weight: 300;
+  color: var(--Colors__Moonlightwhite);
+  line-height: 37.9px;
+  /* sit closer to preceding h1 */
+  margin-top: 0;
 }
 h4 {
   font-size: 24px;
@@ -83,14 +92,29 @@ body {
   height: 828px;
   /* Fallback background color for very old browsers */
   background-color: var(--Colors__Chocolate_brown);
-  /* Layered background: gradient overlay on top of the hero image */
+  /* Layered background: top and bottom gradient overlays on top of the hero image */
   background-image: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 100%
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 35%
     ),
-    url("../images/hero.png");
+    /* darken top */
+      linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
+    /* darken bottom */ url("../images/hero.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+#topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+#hero_text {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
