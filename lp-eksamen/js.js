@@ -59,22 +59,47 @@ let allproducts = [];
 async function getproducts() {
   const response = await fetch("app.json");
   allproducts = await response.json();
+  displayproduct(allproducts[0]);
 }
 
 function displayproduct(product) {
-  const productList = document.querySelector("#productsinfo");
+  console.log(product);
+  const productList = document.querySelector("#productinfo");
+
+  for (const product of allproducts) {
+  }
 
   const product_infoHTML = `
     <div class="productinfo">
-      <article class="card2-info">
-      <h3>${product.title}</h3>
-        <section class="atributterCard2">
-            <p class="priceinfo">Price: ${product.price} DKK</p>
-            <p class="saleprice"> Sale: ${product.sale} DKK</p>
-        </section>
-      </article>
+        <div class="headline-product">
+            <h5>LUMINA one</h5>
+            <h2>Portable Bluetooth Speaker</h2>
+        </div>
+        <div class="rating">
+            <img src="${product.rating}" alt="rating" class="ratingstars"/>
+            <h5> 3k reviews on Trustpilot</h5>
+        </div>
+        <div class="productdescription">
+            <p>${product.description}</p>
+        </div>
+        <article class="colorsandprices">
+            <div class="productcolor">
+                <h5>${product.title}</h5>
+                <img src="${product.elipse}" alt="${product.title}" class="color"/>
+            </div>
+            <div class="productbuttom">
+                <button class="button button2">BUY NOW</button>
+            <section class="prices">
+                <p class="price">Price: ${product.price} DKK</p>
+                <p class="saleprice"> Sale: ${product.sale} DKK</p>
+            </section>
+            </div>
+           
+        </article>
 
-    </div>
+     </div>
   `;
-  productlist.insertAdjacentHTML("beforeend", gameHTML);
+  productList.insertAdjacentHTML("beforeend", product_infoHTML);
 }
+
+getproducts();
