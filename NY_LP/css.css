@@ -2,7 +2,7 @@ h1 {
   font-size: 60px;
   font-family: Jura, sans-serif;
   font-weight: 500;
-  color: var(--Colors__Moonlightwhite);
+  color: var(--colors-moonlightwhite);
   line-height: 71px;
   /* reduce space to following headings */
   margin-bottom: 8px;
@@ -11,13 +11,13 @@ h2 {
   font-size: 28px;
   font-family: JetBrains Mono, sans-serif;
   font-weight: 700;
-  color: var(--Colors__Mrkebrun);
+  color: var(--colors-mrkebrun);
 }
 h3 {
   font-size: 32px;
   font-family: Jura, sans-serif;
   font-weight: 300;
-  color: var(--Colors__Moonlightwhite);
+  color: var(--colors-moonlightwhite);
   line-height: 37.9px;
   /* sit closer to preceding h1 */
   margin-top: 0;
@@ -40,31 +40,27 @@ p {
 }
 
 :root {
-  --Colors__Mrkebrun: #282119;
-  --Colors__Mrkeorange: rgba(165, 77, 39, 0.5);
-  --Colors__Orange: #c97338;
-  --Colors__Varmbrun: #65371f;
-  --Colors__Beige: #e6d8bd;
-  --Colors__Hamonikafarve: rgba(240, 240, 240, 0.6);
-  --Colors__Moonlightwhite: #fafafa;
-  --Colors__Violet: #c3bfd5;
-  --Colors__Green: #b2ac88;
-  --Colors__Dustyrose: #dda1a2;
-  --Colors__Moonlight: #ebdec6;
-  --Colors__BG: #ffffff;
-  --Colors__Chocolate_brown: #282119;
-  --Colors__Karrusel_BG: #fafafa;
-  --Toggle_day: #c97338;
+  --colors-mrkebrun: #282119;
+  --colors-mrkeorange: rgba(165, 77, 39, 0.5);
+  --colors-orange: #c97338;
+  --colors-varmbrun: #65371f;
+  --colors-beige: #e6d8bd;
+  --colors-hamonikafarve: rgba(240, 240, 240, 0.6);
+  --colors-moonlightwhite: #fafafa;
+  --colors-violet: #c3bfd5;
+  --colors-green: #b2ac88;
+  --colors-dustyrose: #dda1a2;
+  --colors-moonlight: #ebdec6;
+  --colors-bg: #ffffff;
+  --colors-chocolatebrown: #282119;
+  --colors-karrusel-bg: #fafafa;
+  --toggleday: #c97338;
   --togglenight: #282119;
-  --Hero_text: #fafafa;
-  --Mrk_Orange_80: rgba(165, 77, 39, 0.8);
-  --app_CTA: #d7d7d7;
-  --CTA_tekst: rgba(40, 33, 25, 0.8);
-  --CTA_BG: rgba(40, 33, 25, 0.3);
-  /* aliases used by switch styles */
-  --farve_mørkebrun: var(--Colors__Mrkebrun);
-  --farve_moonlightwhite: var(--Colors__Moonlightwhite);
-  --farve_mørkeorange: var(--Colors__Mrk_Orange_80);
+  --herotext: #fafafa;
+  --mrk-orange-80: rgba(165, 77, 39, 0.8);
+  --app-cta: #d7d7d7;
+  --cta-tekst: rgba(40, 33, 25, 0.8);
+  --cta-bg: rgba(40, 33, 25, 0.3);
 }
 
 /* FONTS */
@@ -75,18 +71,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: Jura, sans-serif;
-  background-color: var(--Colors__BG);
+  background-color: var(--colors-bg);
 }
 
 #banner {
-  background-color: var(--Colors__Mrkebrun);
+  background-color: var(--colors-mrkebrun);
   text-align: start;
   padding: 16px;
   padding-left: 80px;
 }
 
 #banner a {
-  color: var(--Colors__Moonlightwhite);
+  color: var(--colors-moonlightwhite);
   font-size: 14px;
   font-family: Jura, sans-serif;
   font-weight: 400;
@@ -97,7 +93,7 @@ body {
   width: 100%;
   height: 828px;
   /* Fallback background color for very old browsers */
-  background-color: var(--Colors__Chocolate_brown);
+  background-color: var(--colors-chocolatebrown);
   /* Layered background: top and bottom gradient overlays on top of the hero image */
   background-image: linear-gradient(
       to bottom,
@@ -112,16 +108,16 @@ body {
   background-repeat: no-repeat;
 }
 
-#topNav {
+#topnav {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 64px;
   padding-top: 16px;
 }
-#topNav a {
+#topnav a {
   text-decoration: none;
-  color: var(--Hero_text);
+  color: var(--herotext);
   font-family: Jura, sans-serif;
   font-size: 20px;
 }
@@ -131,7 +127,7 @@ body {
   gap: 16px;
 }
 
-#hero_content {
+#hero-content {
   display: flex;
   flex-direction: column;
   gap: 200px;
@@ -139,28 +135,28 @@ body {
   padding-top: 120px;
 }
 
-#hero_text {
+#hero-text {
   display: flex;
   flex-direction: column;
   height: fit-content;
 }
 
-#hero_text_button {
+#hero-text-button {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-#hero_button {
+#hero-button {
   display: inline-flex;
   padding: 12px 24px;
   justify-content: center;
   align-items: center;
   border-radius: 78px;
-  border: 2.5px solid var(--Colors-Mrke-brun, #282119);
-  background: var(--CTA_BG);
+  border: 2.5px solid var(--colors-mrkebrun, #282119);
+  background: var(--cta-bg);
   box-shadow: 0 1px 26.7px -2px rgba(101, 55, 31, 0.1);
-  color: var(--Hero_text, #fafafa);
+  color: var(--herotext, #fafafa);
   font-family: Jura;
   font-size: 24px;
   font-style: normal;
@@ -168,9 +164,9 @@ body {
   line-height: normal;
 }
 
-#hero_button:hover {
+#hero-button:hover {
   cursor: pointer;
-  background-color: var(--Colors__Mrkeorange);
+  background-color: var(--colors-mrkebrun);
 }
 
 #trustpilot {
@@ -208,7 +204,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--farve_mørkebrun);
+  background-color: var(--colors-mrkebrun);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -220,7 +216,7 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: var(--farve_moonlightwhite);
+  background-color: var(--colors-moonlightwhite);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   z-index: 2; /* knob above text */
@@ -232,7 +228,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 12px;
-  color: var(--farve_moonlightwhite);
+  color: var(--colors-moonlightwhite);
   pointer-events: none;
   z-index: 1; /* behind knob */
 }
@@ -256,11 +252,11 @@ input:checked + .slider .slider-text.off {
 }
 
 input:checked + .slider {
-  background-color: var(--Toggle_day);
+  background-color: var(--toggleday);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 5px var(--Colors__Mrkeorange);
+  box-shadow: 0 0 5px var(--colors-mrkeorange);
 }
 
 input:checked + .slider:before {
@@ -295,13 +291,18 @@ input:checked + .slider:before {
 
 footer {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 50px;
+  padding: 8%;
   width: 100%;
-  background: var(--Colors__Mrkebrun);
-  color: var(--Colors__Moonlightwhite);
+  background: var(--colors-mrkebrun);
+  color: var(--colors-moonlightwhite);
+  gap: 8%;
 }
 
 footer a {
   text-decoration: none;
-  color: var(--Colors__Moonlightwhite);
+  color: var(--colors-moonlightwhite);
+  display: flex;
+  flex-direction: column;
 }
