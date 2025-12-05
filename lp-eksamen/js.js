@@ -1,17 +1,57 @@
-// ...existing code will initialize after DOMContentLoaded
-let body = null;
-let slides = [];
-let leftBtn = null;
-let rightBtn = null;
+// Get a reference to the body element
+const body = document.body;
+
+// Get all elements with the class 'slide'
+const slides = document.querySelectorAll(".slide");
+
+// Get references to the left and right arrow buttons
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
+
+// Set the initial active slide index to 4
 let activeSlide = 0;
 
+// Event listener for the right arrow button
+rightBtn.addEventListener("click", () => {
+  // Increment the active slide index
+  activeSlide++;
+
+  // If the index goes beyond the last slide, loop back to the first slide
+  if (activeSlide > slides.length - 1) {
+    activeSlide = 0;
+  }
+
+  // Call the function to set the active slide
+  setActiveSlide();
+
+  // Log the current activeSlide to the console
+  console.log("Current activeSlide:", activeSlide);
+});
+
+// Event listener for the left arrow button
+leftBtn.addEventListener("click", () => {
+  // Decrement the active slide index
+  activeSlide--;
+
+  // If the index goes below the first slide, loop back to the last slide
+  if (activeSlide < 0) {
+    activeSlide = slides.length - 1;
+  }
+
+  // Call the function to set the active slide
+  setActiveSlide();
+
+  // Log the current activeSlide to the console
+  console.log("Current activeSlide:", activeSlide);
+});
+
+// Function to set the active slide
 function setActiveSlide() {
-  if (!slides || slides.length === 0) return;
+  // Remove the 'active' class from all slides
   slides.forEach((slide) => slide.classList.remove("active"));
-  // ensure activeSlide is in range
-  activeSlide = ((activeSlide % slides.length) + slides.length) % slides.length;
-  const current = slides[activeSlide];
-  if (current) current.classList.add("active");
+
+  // Add the 'active' class to the current active slide
+  slides[activeSlide].classList.add("active");
 }
 
 let allproducts = [];
@@ -21,48 +61,14 @@ window.addEventListener("DOMContentLoaded", initApp); // When the DOM is loaded,
 
 function initApp() {
   console.log("initApp is running");
-
-  // safe DOM queries after DOM is ready
-  body = document.body;
-  slides = Array.from(document.querySelectorAll(".slide"));
-  leftBtn = document.getElementById("left");
-  rightBtn = document.getElementById("right");
-
-  // wire slider buttons if they exist
-  if (rightBtn) {
-    rightBtn.addEventListener("click", () => {
-      if (!slides || slides.length === 0) return;
-      activeSlide = (activeSlide + 1) % slides.length;
-      setActiveSlide();
-      console.log("Current activeSlide:", activeSlide);
-    });
-  }
-
-  if (leftBtn) {
-    leftBtn.addEventListener("click", () => {
-      if (!slides || slides.length === 0) return;
-      activeSlide = (activeSlide - 1 + slides.length) % slides.length;
-      setActiveSlide();
-      console.log("Current activeSlide:", activeSlide);
-    });
-  }
-
   getproducts();
 }
 
 async function getproducts() {
-  try {
-    const response = await fetch("app.json");
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    allproducts = await response.json();
-    // show first product (replace existing content)
-    if (allproducts && allproducts.length) {
-      displayproduct(allproducts[0]);
-      displayProductElipses(allproducts);
-    }
-  } catch (err) {
-    console.error("getproducts error", err);
-  }
+  const response = await fetch("app.json");
+  allproducts = await response.json();
+  displayproduct(allproducts[0]);
+  displayProductElipses(allproducts);
 }
 
 function displayproduct(product) {
@@ -99,28 +105,26 @@ function displayproduct(product) {
 
      </div>
   `;
-  if (!productList) return;
-  productList.innerHTML = product_infoHTML; // replace content instead of appending
+  productList.insertAdjacentHTML("beforeend", product_infoHTML);
 }
 
 // #3: Display all movies as clickable images
 function displayProductElipses(products) {
   const elipses = document.querySelector("#elipses");
-  if (!elipses) return;
-  elipses.innerHTML = "";
+
   for (const product of products) {
-    const img = document.createElement("img");
-    img.src = product.elipse;
-    img.alt = product.title;
-    img.className = "elipse";
-    img.addEventListener("click", () => selectProduct(product));
-    elipses.appendChild(img);
+    const elipsesHTML = /*html*/ `
+      <img src="${product.elipse}" alt="${product.title}" class="elipse" />
+    `;
+    elipses.insertAdjacentHTML("beforeend", elipsesHTML);
+    elipses.lastElementChild.addEventListener("click", () => {
+      selectProduct(product);
+    });
   }
 }
 
 function selectProduct(product) {
   const selectedProduct = document.querySelector("#selected-product");
-  if (!selectedProduct) return;
   selectedProduct.innerHTML = /*html*/ `
     <figure>
       <img src="${product.giftimage}" alt="${product.title}" />
@@ -138,10 +142,10 @@ function selectProduct(product) {
             <p>${product.description}</p>
         </div>
         <article class="colorsandprices">
-      <div class="productcolor">
-        <h5>${product.title}</h5>
-        <div class="elipses-container"></div>
-      </div>
+            <div class="productcolor">
+                <h5>${product.title}</h5>
+                <div id="elipses" ></div>
+            </div>
             <div class="productbuttom">
                 <button class="button button2">BUY NOW</button>
             <section class="prices">
@@ -154,17 +158,4 @@ function selectProduct(product) {
 
      </div>
   `;
-  // populate the elipses for the selected area (use class to avoid duplicate id)
-  const container = selectedProduct.querySelector(".elipses-container");
-  if (container) {
-    container.innerHTML = "";
-    for (const p of allproducts) {
-      const img = document.createElement("img");
-      img.src = p.elipse;
-      img.alt = p.title;
-      img.className = "elipse";
-      img.addEventListener("click", () => selectProduct(p));
-      container.appendChild(img);
-    }
-  }
 }
