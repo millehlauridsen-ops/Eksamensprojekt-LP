@@ -1,73 +1,73 @@
-// Get a reference to the body element
-const body = document.body;
-
-// Get all elements with the class 'slide'
-const slides = document.querySelectorAll(".slide");
-
-// Get references to the left and right arrow buttons
-const leftBtn = document.getElementById("left");
-const rightBtn = document.getElementById("right");
-
-// Set the initial active slide index to 4
+// ...existing code will initialize after DOMContentLoaded
+let body = null;
+let slides = [];
+let leftBtn = null;
+let rightBtn = null;
 let activeSlide = 0;
 
-// Event listener for the right arrow button
-rightBtn.addEventListener("click", () => {
-  // Increment the active slide index
-  activeSlide++;
-
-  // If the index goes beyond the last slide, loop back to the first slide
-  if (activeSlide > slides.length - 1) {
-    activeSlide = 0;
-  }
-
-  // Call the function to set the active slide
-  setActiveSlide();
-
-  // Log the current activeSlide to the console
-  console.log("Current activeSlide:", activeSlide);
-});
-
-// Event listener for the left arrow button
-leftBtn.addEventListener("click", () => {
-  // Decrement the active slide index
-  activeSlide--;
-
-  // If the index goes below the first slide, loop back to the last slide
-  if (activeSlide < 0) {
-    activeSlide = slides.length - 1;
-  }
-
-  // Call the function to set the active slide
-  setActiveSlide();
-
-  // Log the current activeSlide to the console
-  console.log("Current activeSlide:", activeSlide);
-});
-
-// Function to set the active slide
 function setActiveSlide() {
-  // Remove the 'active' class from all slides
+  if (!slides || slides.length === 0) return;
   slides.forEach((slide) => slide.classList.remove("active"));
-
-  // Add the 'active' class to the current active slide
-  slides[activeSlide].classList.add("active");
+  // ensure activeSlide is in range
+  activeSlide = ((activeSlide % slides.length) + slides.length) % slides.length;
+  const current = slides[activeSlide];
+  if (current) current.classList.add("active");
 }
 
 let allproducts = [];
 
+// #0: Listen for page load
+window.addEventListener("DOMContentLoaded", initApp); // When the DOM is loaded, run initApp function
+
+function initApp() {
+  console.log("initApp is running");
+
+  // safe DOM queries after DOM is ready
+  body = document.body;
+  slides = Array.from(document.querySelectorAll(".slide"));
+  leftBtn = document.getElementById("left");
+  rightBtn = document.getElementById("right");
+
+  // wire slider buttons if they exist
+  if (rightBtn) {
+    rightBtn.addEventListener("click", () => {
+      if (!slides || slides.length === 0) return;
+      activeSlide = (activeSlide + 1) % slides.length;
+      setActiveSlide();
+      console.log("Current activeSlide:", activeSlide);
+    });
+  }
+
+  if (leftBtn) {
+    leftBtn.addEventListener("click", () => {
+      if (!slides || slides.length === 0) return;
+      activeSlide = (activeSlide - 1 + slides.length) % slides.length;
+      setActiveSlide();
+      console.log("Current activeSlide:", activeSlide);
+    });
+  }
+
+  getproducts();
+}
+
 async function getproducts() {
-  const response = await fetch("app.json");
-  allproducts = await response.json();
-  displayproduct(allproducts[0]);
+  try {
+    const response = await fetch("app.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    allproducts = await response.json();
+    // show first product (replace existing content)
+    if (allproducts && allproducts.length) {
+      displayproduct(allproducts[0]);
+      displayProductElipses(allproducts);
+    }
+  } catch (err) {
+    console.error("getproducts error", err);
+  }
 }
 
 function displayproduct(product) {
   console.log(product);
   const productList = document.querySelector("#productinfo");
-
-  for (const product of allproducts) {
-  }
 
   const product_infoHTML = `
     <div class="productinfo">
@@ -99,7 +99,72 @@ function displayproduct(product) {
 
      </div>
   `;
-  productList.insertAdjacentHTML("beforeend", product_infoHTML);
+  if (!productList) return;
+  productList.innerHTML = product_infoHTML; // replace content instead of appending
 }
 
-getproducts();
+// #3: Display all movies as clickable images
+function displayProductElipses(products) {
+  const elipses = document.querySelector("#elipses");
+  if (!elipses) return;
+  elipses.innerHTML = "";
+  for (const product of products) {
+    const img = document.createElement("img");
+    img.src = product.elipse;
+    img.alt = product.title;
+    img.className = "elipse";
+    img.addEventListener("click", () => selectProduct(product));
+    elipses.appendChild(img);
+  }
+}
+
+function selectProduct(product) {
+  const selectedProduct = document.querySelector("#selected-product");
+  if (!selectedProduct) return;
+  selectedProduct.innerHTML = /*html*/ `
+    <figure>
+      <img src="${product.giftimage}" alt="${product.title}" />
+    </figure>
+   <div class="productinfo">
+        <div class="headline-product">
+            <h5>LUMINA one</h5>
+            <h2>Portable Bluetooth Speaker</h2>
+        </div>
+        <div class="rating">
+            <img src="${product.rating}" alt="rating" class="ratingstars"/>
+            <h5> 3k reviews on Trustpilot</h5>
+        </div>
+        <div class="productdescription">
+            <p>${product.description}</p>
+        </div>
+        <article class="colorsandprices">
+      <div class="productcolor">
+        <h5>${product.title}</h5>
+        <div class="elipses-container"></div>
+      </div>
+            <div class="productbuttom">
+                <button class="button button2">BUY NOW</button>
+            <section class="prices">
+                <p class="price">Price: ${product.price} DKK</p>
+                <p class="saleprice"> Sale: ${product.sale} DKK</p>
+            </section>
+            </div>
+           
+        </article>
+
+     </div>
+  `;
+  // populate the elipses for the selected area (use class to avoid duplicate id)
+  const container = selectedProduct.querySelector(".elipses-container");
+  if (container) {
+    container.innerHTML = "";
+    for (const p of allproducts) {
+      const img = document.createElement("img");
+      img.src = p.elipse;
+      img.alt = p.title;
+      img.className = "elipse";
+      img.addEventListener("click", () => selectProduct(p));
+      container.appendChild(img);
+    }
+  }
+}
