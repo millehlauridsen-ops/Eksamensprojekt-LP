@@ -112,7 +112,7 @@ function displayproduct(product) {
 function displayProductElipses(products) {
   const elipses = document.querySelector("#elipses");
 
-  for (const product of products) {
+  for (const product of allproducts) {
     const elipsesHTML = /*html*/ `
       <img src="${product.elipse}" alt="${product.title}" class="elipse" />
     `;
@@ -126,7 +126,7 @@ function displayProductElipses(products) {
 function selectProduct(product) {
   const selectedProduct = document.querySelector("#selected-product");
   selectedProduct.innerHTML = /*html*/ `
-    <figure>
+    <figure class="giftimage">
       <img src="${product.giftimage}" alt="${product.title}" />
     </figure>
    <div class="productinfo">
@@ -158,4 +158,5 @@ function selectProduct(product) {
 
      </div>
   `;
+  displayProductElipses(allproducts);
 }

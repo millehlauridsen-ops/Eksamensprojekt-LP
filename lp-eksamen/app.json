@@ -83,12 +83,12 @@
     "image": [
       "/images/charcoalblack/billede1.png",
       "/images/charcoalblack/billede2.png",
-      "/images/charcoalblack/blackgave.png"
+      "/images/charcoalblack/sortgave.png"
     ],
     "video": "/images/charcoalblack/Blackvideo.mov",
     "description": "Big sound, sleek design, and up to 18 hours of playtime. With customizable ambient lighting, Bluetooth 5.3 connectivity, and IPX5 water resistance, LUMINA one is your perfect companion for beach days, park picnics, or cozy nights.",
     "elipse": "/images/components/black.svg",
-    "giftimage": "/images/charcoalblack/blackgave.png"
+    "giftimage": "/images/charcoalblack/sortgave.png"
   },
   {
     "id": 5,
