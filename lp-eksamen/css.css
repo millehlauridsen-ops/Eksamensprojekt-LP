@@ -464,32 +464,47 @@ input:checked + .slider:before {
   justify-content: space-between;
   padding-right: 4vw;
   padding-top: 4vh;
-  background-color: #dda1a2;
+  background-color: var(--colors__bg);
 }
 
 /* Styling af karussel */
 #app-carousel {
-  height: 50vh;
+  height: fit-content;
   position: relative;
-  width: 100%;
-  padding: 4vh;
   background-color: var(--colors__karrusel_bg);
 }
+
+.luminate-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  padding: 4vh;
+  margin: 0;
+  h5 {
+    margin: 0;
+  }
+  h2 {
+    margin: 0;
+  }
+}
+
 .carruosel {
   background-color: var(--carrouselcolor);
   padding: 4vh;
   margin-left: -4vh;
+  width: 100%;
+
   .socials {
-    display: flex;
-    width: 190%;
-    overflow-x: scroll;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
     gap: 1vw;
+    overflow-x: auto;
     overflow-y: hidden;
     height: 32vh;
 
     img {
-      height: auto;
-      width: calc(100%);
+      width: 100%;
     }
   }
 }
