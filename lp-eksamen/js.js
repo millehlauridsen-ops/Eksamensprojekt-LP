@@ -71,6 +71,20 @@ async function getproducts() {
   displayProductElipses(allproducts);
 }
 
+function displayProductElipses1(products) {
+  const elipses = document.querySelector("#elipses1");
+
+  for (const product of allproducts) {
+    const elipsesHTML = /*html*/ `
+      <img src="${product.elipse}" alt="${product.title}" class="elipse" />
+    `;
+    elipses.insertAdjacentHTML("beforeend", elipsesHTML);
+    elipses.lastElementChild.addEventListener("click", () => {
+      displayProduct(product);
+    });
+  }
+}
+
 function displayproduct(product) {
   console.log(product);
   const productList = document.querySelector("#productinfo");
@@ -91,7 +105,7 @@ function displayproduct(product) {
         <article class="colorsandprices">
             <div class="productcolor">
                 <h5>${product.title}</h5>
-                <img src="${product.elipse}" alt="${product.title}" class="color"/>
+                <div id="elipses1" ></div>
             </div>
             <div class="productbuttom">
                 <button class="button button2">BUY NOW</button>
@@ -106,6 +120,7 @@ function displayproduct(product) {
      </div>
   `;
   productList.insertAdjacentHTML("beforeend", product_infoHTML);
+  displayProductElipses1(allproducts);
 }
 
 // #3: Display all movies as clickable images
