@@ -2,7 +2,6 @@ h1 {
   font-size: 60px;
   font-family: jura, sans-serif;
   font-weight: 500;
-  color: var(--colors__moonlightwhite);
   line-height: 71px;
   /* reduce space to following headings */
   margin-bottom: 8px;
@@ -17,7 +16,6 @@ h3 {
   font-size: 32px;
   font-family: jura, sans-serif;
   font-weight: 300;
-  color: var(--colors__moonlightwhite);
   line-height: 37.9px;
   /* sit closer to preceding h1 */
   margin-top: 0;
@@ -62,6 +60,14 @@ p {
   --cta_tekst: rgba(40, 33, 25, 0.8);
   --cta_bg: rgba(40, 33, 25, 0.3);
   --carrouselcolor: #c972383d;
+  --heroImage: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 35%
+    ),
+    /* darken top */
+      linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
+    /* darken bottom */ url("../images/hero.png");
 }
 
 /* fonts */
@@ -79,7 +85,7 @@ body {
 }
 
 .banner {
-  background-color: var(--colors__mrkebrun);
+  background-color: #282119;
   text-align: start;
   padding: 16px;
   padding-left: 80px;
@@ -108,19 +114,13 @@ body {
   width: 100%;
   height: 828px;
   /* fallback background color for very old browsers */
-  background-color: var(--colors__chocolate_brown);
+  background-color: var(--colors__bg);
   /* layered background: top and bottom gradient overlays on top of the hero image */
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0) 35%
-    ),
-    /* darken top */
-      linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
-    /* darken bottom */ url("../images/hero.png");
+  background-image: var(--heroImage);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  color: var(--hero_text);
 }
 
 .topnav {
@@ -226,7 +226,7 @@ body {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: var(--colors__moonlightwhite);
+  background-color: var(--hero_text);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   z-index: 2; /* knob above text */
@@ -238,7 +238,7 @@ body {
   top: 50%;
   transform: translatey(-50%);
   font-size: 12px;
-  color: var(--colors__moonlightwhite);
+  color: var(--hero_text);
   pointer-events: none;
   z-index: 1; /* behind knob */
 }
@@ -554,6 +554,7 @@ input:checked + .slider:before {
   justify-content: space-evenly;
   align-items: center;
   padding-bottom: 8vh;
+  color: var(--colors__mrkebrun);
 }
 .features {
   width: 40vw;

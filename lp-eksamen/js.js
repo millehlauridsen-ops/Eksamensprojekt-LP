@@ -9,6 +9,7 @@ function initApp() {
   console.log("initApp is running");
   getproducts();
   changeSite();
+  toggleSwitch();
 }
 
 async function getproducts() {
@@ -131,6 +132,42 @@ function changeSite() {
     btn.addEventListener("click", () => {
       window.location.href = "product.html";
     });
+  });
+}
+
+function toggleSwitch() {
+  const toggle = document.getElementById("toggleswitch");
+  const hero = document.getElementById("hero");
+  if (!toggle) return; // no element on this page — avoid errors
+
+  const heroDay =
+    'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url("images/hero.png")';
+  const heroNight =
+    'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%), url("images/nightHero.png")';
+
+  // apply initial state immediately
+  //Spørgsmålstegn er ligesom en if else funktion. Så hvis den er true/checked, apply'er den koden -ellers gør den ikke
+  const apply = (checked) => {
+    if (!hero) return;
+    hero.style.backgroundImage = checked ? heroNight : heroDay;
+
+    document.documentElement.style.setProperty(
+      "--colors__bg",
+      checked ? "#62493C" : "#ffffff"
+    );
+    document.documentElement.style.setProperty(
+      "--colors__mrkebrun",
+      checked ? "#fafafa" : "#282119"
+    );
+    document.documentElement.style.setProperty(
+      "--colors__moonlightwhite",
+      checked ? "#282119" : "#fafafa"
+    );
+  };
+  apply(toggle.checked);
+
+  toggle.addEventListener("change", function () {
+    apply(this.checked);
   });
 }
 
