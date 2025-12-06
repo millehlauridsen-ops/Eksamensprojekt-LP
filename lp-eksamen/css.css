@@ -404,6 +404,9 @@ input:checked + .slider:before {
 .productdescription {
   padding: 0;
   margin-bottom: 40px;
+  h3 {
+    color: var(--colors__mrkebrun);
+  }
 }
 
 .prices {
@@ -495,6 +498,8 @@ input:checked + .slider:before {
   width: 100%;
 
   .socials {
+    padding-left: 2vh;
+    padding-right: 2vh;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 21%;
@@ -505,6 +510,13 @@ input:checked + .slider:before {
 
     img {
       width: 100%;
+    }
+    img:hover {
+      background-color: (
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0) 35%
+      );
     }
   }
 }

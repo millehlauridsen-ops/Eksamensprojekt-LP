@@ -69,6 +69,7 @@ async function getproducts() {
   allproducts = await response.json();
   displayproduct(allproducts[0]);
   displayProductElipses(allproducts);
+  selectProduct(allproducts[0]);
 }
 
 function displayProductElipses1(products) {
@@ -154,6 +155,7 @@ function selectProduct(product) {
             <h5> 3k reviews on Trustpilot</h5>
         </div>
         <div class="productdescription">
+        <h3> GET 15% OFF</h3>
             <p>${product.description}</p>
         </div>
         <article class="colorsandprices">
