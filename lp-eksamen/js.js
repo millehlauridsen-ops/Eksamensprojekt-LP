@@ -7,9 +7,9 @@ window.addEventListener("DOMContentLoaded", initApp); // When the DOM is loaded,
 
 function initApp() {
   console.log("initApp is running");
+  toggleSwitch();
   getproducts();
   changeSite();
-  toggleSwitch();
 }
 
 async function getproducts() {
@@ -137,6 +137,7 @@ function changeSite() {
 
 function toggleSwitch() {
   const toggle = document.getElementById("toggleswitch");
+
   const hero = document.getElementById("hero");
   if (!toggle) return; // no element on this page — avoid errors
 

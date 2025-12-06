@@ -295,7 +295,6 @@ input:checked + .slider:before {
   position: absolute;
   top: 100%;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -617,10 +616,12 @@ footer a {
 
 #backspace {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin: 0;
   padding-top: 2vh;
   padding-left: 4vw;
+  padding-right: 4vw;
 
   h3 {
     color: var(--colors__mrkebrun);
@@ -633,4 +634,9 @@ footer a {
   align-items: center;
   text-decoration: none;
   height: fit-content;
+}
+
+#slider1 {
+  margin: 0;
+  position: relative;
 }
