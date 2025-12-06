@@ -111,7 +111,7 @@ function displayproduct(product) {
             <div class="productbuttom">
                 <button class="button button2">BUY NOW</button>
             <section class="prices">
-                <p class="price">Price: ${product.price} DKK</p>
+                <p class="price"> ${product.price} DKK</p>
                 <p class="saleprice"> Sale: ${product.sale} DKK</p>
             </section>
             </div>
@@ -166,7 +166,7 @@ function selectProduct(product) {
             <div class="productbuttom">
                 <button class="button button2">BUY NOW</button>
             <section class="prices">
-                <p class="price">Price: ${product.price} DKK</p>
+                <p class="price"> ${product.price} DKK</p>
                 <p class="saleprice"> Sale: ${product.sale} DKK</p>
             </section>
             </div>

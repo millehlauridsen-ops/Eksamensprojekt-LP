@@ -507,18 +507,44 @@ input:checked + .slider:before {
     overflow-x: auto;
     overflow-y: hidden;
     height: 32vh;
-
-    img {
-      width: 100%;
-    }
-    img:hover {
-      background-color: (
-        to bottom,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0) 35%
-      );
-    }
   }
+}
+
+.socials .socialpicture {
+  position: relative;
+  overflow: hidden;
+  display: block; /* ensures wrapper takes image width */
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 300ms ease;
+  }
+}
+
+/* ::after bliver brugt til overlays (indhold der indsættes efter det valgte element -uden HTML) */
+.socials .socialpicture::after {
+  content: "@cozygirl_123";
+  align-content: end;
+  color: var(--colors__moonlightwhite);
+  padding: 1vh;
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.45) 60%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  opacity: 0; /*gør det tilføjet usynligt så det kan gøres synlight ved hover*/
+  transition: opacity 240ms ease;
+  pointer-events: none;
+}
+
+/* on hover show gradient */
+.socials .socialpicture:hover::after {
+  opacity: 1;
 }
 
 /* styling of footer section */
