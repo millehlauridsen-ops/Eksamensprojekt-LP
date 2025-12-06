@@ -613,3 +613,23 @@ footer a {
 .sitenav {
   background-color: var(--colors__mrkebrun);
 }
+
+#backspace {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-top: 2vh;
+  padding-left: 4vw;
+
+  h3 {
+    color: var(--colors__mrkebrun);
+    margin-bottom: 0;
+  }
+}
+
+#backspace a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: fit-content;
+}
