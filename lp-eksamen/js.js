@@ -54,6 +54,8 @@ function setActiveSlide() {
   slides[activeSlide].classList.add("active");
 }
 
+// JSON and product changes!
+
 let allproducts = [];
 
 // #0: Listen for page load
@@ -62,6 +64,7 @@ window.addEventListener("DOMContentLoaded", initApp); // When the DOM is loaded,
 function initApp() {
   console.log("initApp is running");
   getproducts();
+  changeSite();
 }
 
 async function getproducts() {
@@ -142,6 +145,52 @@ function displayProductElipses(products) {
 function selectProduct(product) {
   const selectedProduct = document.querySelector("#selected-product");
   selectedProduct.innerHTML = /*html*/ `
+    <figure class="giftimage">
+      <img src="${product.giftimage}" alt="${product.title}" />
+    </figure>
+   <div class="productinfo">
+        <div class="headline-product">
+            <h5>LUMINA one</h5>
+            <h2>Portable Bluetooth Speaker</h2>
+        </div>
+        <div class="rating">
+            <img src="${product.rating}" alt="rating" class="ratingstars"/>
+            <h5> 3k reviews on Trustpilot</h5>
+        </div>
+        <div class="productdescription">
+        <h3> GET 15% OFF</h3>
+            <p>${product.description}</p>
+        </div>
+        <article class="colorsandprices">
+            <div class="productcolor">
+                <h5>${product.title}</h5>
+                <div id="elipses" ></div>
+            </div>
+            <div class="productbuttom">
+                <button class="button button2">BUY NOW</button>
+            <section class="prices">
+                <p class="price"> ${product.price} DKK</p>
+                <p class="saleprice"> Sale: ${product.sale} DKK</p>
+            </section>
+            </div>
+           
+        </article>
+
+     </div>
+  `;
+  displayProductElipses(allproducts);
+}
+
+function changeSite() {
+  const button = document.getElementsByClassName("button");
+  button.addEventListener("click", function () {
+    window.location.href = "product.html";
+  });
+}
+
+function showProduct(product) {
+  const productSite = document.querySelector("#productSite");
+  productSite.innerHTML = /*html*/ `
     <figure class="giftimage">
       <img src="${product.giftimage}" alt="${product.title}" />
     </figure>
