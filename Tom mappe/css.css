@@ -1,0 +1,308 @@
+h1 {
+  font-size: 60px;
+  font-family: Jura, sans-serif;
+  font-weight: 500;
+  color: var(--colors-moonlightwhite);
+  line-height: 71px;
+  /* reduce space to following headings */
+  margin-bottom: 8px;
+}
+h2 {
+  font-size: 28px;
+  font-family: JetBrains Mono, sans-serif;
+  font-weight: 700;
+  color: var(--colors-mrkebrun);
+}
+h3 {
+  font-size: 32px;
+  font-family: Jura, sans-serif;
+  font-weight: 300;
+  color: var(--colors-moonlightwhite);
+  line-height: 37.9px;
+  /* sit closer to preceding h1 */
+  margin-top: 0;
+}
+h4 {
+  font-size: 24px;
+  font-family: Jura, sans-serif;
+  font-weight: 700;
+}
+h5 {
+  font-size: 14px;
+  font-family: Jura, sans-serif;
+  font-weight: undefined;
+}
+p {
+  font-size: 20px;
+  font-family: Jura, sans-serif;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+:root {
+  --colors-mrkebrun: #282119;
+  --colors-mrkeorange: rgba(165, 77, 39, 0.5);
+  --colors-orange: #c97338;
+  --colors-varmbrun: #65371f;
+  --colors-beige: #e6d8bd;
+  --colors-hamonikafarve: rgba(240, 240, 240, 0.6);
+  --colors-moonlightwhite: #fafafa;
+  --colors-violet: #c3bfd5;
+  --colors-green: #b2ac88;
+  --colors-dustyrose: #dda1a2;
+  --colors-moonlight: #ebdec6;
+  --colors-bg: #ffffff;
+  --colors-chocolatebrown: #282119;
+  --colors-karrusel-bg: #fafafa;
+  --toggleday: #c97338;
+  --togglenight: #282119;
+  --herotext: #fafafa;
+  --mrk-orange-80: rgba(165, 77, 39, 0.8);
+  --app-cta: #d7d7d7;
+  --cta-tekst: rgba(40, 33, 25, 0.8);
+  --cta-bg: rgba(40, 33, 25, 0.3);
+}
+
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Jura:wght@300&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Jura, sans-serif;
+  background-color: var(--colors-bg);
+}
+
+#banner {
+  background-color: var(--colors-mrkebrun);
+  text-align: start;
+  padding: 16px;
+  padding-left: 80px;
+}
+
+#banner a {
+  color: var(--colors-moonlightwhite);
+  font-size: 14px;
+  font-family: Jura, sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+#hero {
+  width: 100%;
+  height: 828px;
+  /* Fallback background color for very old browsers */
+  background-color: var(--colors-chocolatebrown);
+  /* Layered background: top and bottom gradient overlays on top of the hero image */
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 35%
+    ),
+    /* darken top */
+      linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%),
+    /* darken bottom */ url("../images/hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 64px;
+  padding-top: 16px;
+}
+#topnav a {
+  text-decoration: none;
+  color: var(--herotext);
+  font-family: Jura, sans-serif;
+  font-size: 20px;
+}
+#icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+#hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  padding: 64px;
+  padding-top: 120px;
+}
+
+#hero-text {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+#hero-text-button {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+#hero-button {
+  display: inline-flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 78px;
+  border: 2.5px solid var(--colors-mrkebrun, #282119);
+  background: var(--cta-bg);
+  box-shadow: 0 1px 26.7px -2px rgba(101, 55, 31, 0.1);
+  color: var(--herotext, #fafafa);
+  font-family: Jura;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#hero-button:hover {
+  cursor: pointer;
+  background-color: var(--colors-mrkebrun);
+}
+
+#trustpilot {
+  width: fit-content;
+}
+
+#trustpilot a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 4px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--colors-mrkebrun);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--colors-moonlightwhite);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  z-index: 2; /* knob above text */
+}
+
+/* text inside the slider */
+.slider .slider-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--colors-moonlightwhite);
+  pointer-events: none;
+  z-index: 1; /* behind knob */
+}
+.slider .slider-text.on {
+  left: 10px;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.2s;
+}
+.slider .slider-text.off {
+  right: 10px;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+/* toggle text visibility when checked */
+input:checked + .slider .slider-text.on {
+  opacity: 1;
+}
+input:checked + .slider .slider-text.off {
+  opacity: 0;
+}
+
+input:checked + .slider {
+  background-color: var(--toggleday);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 5px var(--colors-mrkeorange);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translateX(46px);
+  transform: translateX(46px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Slider position på siden */
+#slider {
+  height: 300px;
+  position: relative;
+}
+
+#slider {
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding: 8%;
+  width: 100%;
+  background: var(--colors-mrkebrun);
+  color: var(--colors-moonlightwhite);
+  gap: 8%;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--colors-moonlightwhite);
+  display: flex;
+  flex-direction: column;
+}
